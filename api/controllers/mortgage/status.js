@@ -29,7 +29,7 @@ module.exports = {
 
 
     fn: async function (inputs, exits) {
-        let application = await Application.findOne({ mort_id: inputs.mortid });
+        let application = await Application.findOne({ mort_id: inputs.mortId });
         if (application) {
             let employeeInfo = await Employeeinfo.findOne({ application: application.id });
             let insuranceInfo = await Insuranceinfo.findOne({ application: application.id });

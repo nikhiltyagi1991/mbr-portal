@@ -31,7 +31,7 @@ module.exports = {
             description: "Salary of the employee."
         },
         yearsOfEmployment: {
-            type: "",
+            type: "number",
             description: "Years of employment."
         }
     },
@@ -50,7 +50,7 @@ module.exports = {
 
 
     fn: async function (inputs, exits) {
-        let application = await Application.findOne({ mort_id: inputs.mortid, employee_id: inputs.employeeId });
+        let application = await Application.findOne({ mort_id: inputs.mortId, employee_id: inputs.employeeId });
         if (application) {
             await Employeeinfo.create({
                 application: application.id,
@@ -62,6 +62,4 @@ module.exports = {
             return exits.invalid({ message: 'No application for the given mortid and employee id.' })
         }
     }
-
-
 };
